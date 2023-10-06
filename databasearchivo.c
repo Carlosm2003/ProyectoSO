@@ -28,7 +28,7 @@ int main(int argc, char **argv)
 	}
 	// consulta SQL para obtener una tabla con todos los datos
 	// de la base de datos
-	err=mysql_query (conn, "SELECT Jugador.Usuario, Logros.descripcion FROM (Jugador, Logros, Jug_Log) WHERE Jug_Log.logro_obtenido = 'yes' ");
+	err=mysql_query (conn, "SELECT Jugador.Usuario, Logros.descripcion FROM (Jugador, Logros, Jug_Log) WHERE Jug_Log.logro_obtenido = 'yes' AND Jug_Log.recompensa_obtenida = 'no' AND Jugador.ID = Jug_Log.ID_Jugadores AND Logros.ID = Jug_Log.ID_Logro;");
 	if (err!=0) {
 		printf ("Error al consultar datos de la base %u %s\n",
 				mysql_errno(conn), mysql_error(conn));
@@ -48,13 +48,13 @@ int main(int argc, char **argv)
 	row = mysql_fetch_row (resultado);
 	// En una fila hay tantas columnas como datos tiene una
 	// persona. En nuestro caso hay tres columnas: dni(row[0]),
-	// nombre(row[1]) y edad (row[2]).
+	// nombre(row[1]) y edad (row[2]).-std=c99 `mysql_config --cflags --libs` -lm
 	if (row == NULL)
 		printf ("No se han obtenido datos en la consulta\n");
 	else
 		while (row !=NULL) {
 
-			printf ("El Jugador %s, ha obtenido el logro: %s\n", (row[0]), (row[1]));
+			printf ("El Jugador %s, ha obtenido el logro: %s y no lo ha reclamado\n", (row[0]), (row[1]));
 			// obtenemos la siguiente fila
 			row = mysql_fetch_row (resultado);
 		}

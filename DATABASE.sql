@@ -26,14 +26,14 @@ CREATE TABLE Jug_Log (
  	);
 
 
-INSERT INTO Logros VALUES ('+50k', 10000);
-INSERT INTO Logros VALUES ('+500 aviones puntuales', 20000);
-INSERT INTO Logros VALUES ('Todas las terminales desbloqueadas', 10000);
+INSERT INTO Logros VALUES (0, '+50k', 10000);
+INSERT INTO Logros VALUES (1, '+500 aviones puntuales', 20000);
+INSERT INTO Logros VALUES (2, 'Todas las terminales desbloqueadas', 10000);
 
 
-INSERT INTO Jugador VALUE(0,'PauSerrano','pauserrano','pau.serrano@gmail.com','M');
-INSERT INTO Jugador VALUE(1,'CarlosMunoz','carlosmunoz','carlos.munoz@gmail.com','M');
-INSERT INTO Jugador VALUE(2,'JanVinas','janvinas','jan.vinas@gmail.com','M');
+INSERT INTO Jugador VALUES(0,'PauSerrano','pauserrano','pau.serrano@gmail.com','M');
+INSERT INTO Jugador VALUES(1,'CarlosMunoz','carlosmunoz','carlos.munoz@gmail.com','M');
+INSERT INTO Jugador VALUES(2,'JanVinas','janvinas','jan.vinas@gmail.com','M');
 
 INSERT INTO Jug_Log VALUES (0, 0, 'yes', 'yes');
 INSERT INTO Jug_Log VALUES (0, 1, 'yes', 'no');
